@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { findPassage } from "../requests/findPassage";
 import SearchForm from "../components/SearchForm";
 
-const PassageLookup = () => {
+const FindPassage = () => {
   const search = "John+3:16";
   const { data } = useQuery(["passage"], () => findPassage(search));
   const [passageData, setPassageData] = useState(null);
@@ -24,9 +24,9 @@ const PassageLookup = () => {
     <>
       <h1 style={{ textAlign: "center", marginTop: "2rem" }}>find a passage</h1>
       <SearchForm sendValues={onFormSubmit} />
-      <p>{passageData}</p>
+      {/* <p>{passageData}</p> */}
     </>
   );
 };
 
-export default PassageLookup;
+export default FindPassage;

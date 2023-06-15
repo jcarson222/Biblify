@@ -8,9 +8,9 @@ const findPassageUrl = "https://api.esv.org/v3/passage/text/?q=";
 export const findPassage = async (search) => {
   try {
     const res = await axios.get(`${findPassageUrl}${search}`);
-    const data = res.data.query;
-    // console.log(data);
-    return data;
+    const data = res.data.passages;
+    console.log(data);
+    return { data };
   } catch (error) {
     console.log(error);
   }

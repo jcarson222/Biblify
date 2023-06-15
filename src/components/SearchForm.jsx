@@ -31,10 +31,14 @@ const SearchForm = ({ sendValues }) => {
   return (
     <Wrapper>
       <form className="form" onSubmit={handleSubmit}>
-        <label htmlFor="book">book</label>
+        <label htmlFor="book" className="form-label">
+          book
+        </label>
         <input type="search" name="book" className="form-input" ref={bookRef} />
 
-        <label htmlFor="chapter">chapter</label>
+        <label htmlFor="chapter" className="form-label">
+          chapter
+        </label>
         <input
           type="search"
           name="chapter"
@@ -42,7 +46,9 @@ const SearchForm = ({ sendValues }) => {
           ref={chapterRef}
         />
 
-        <label htmlFor="verse">verse</label>
+        <label htmlFor="verse" className="form-label">
+          verse
+        </label>
         <input
           type="search"
           name="verse"
