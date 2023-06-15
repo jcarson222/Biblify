@@ -1,2 +1,2 @@
-export { default as PassageLookup } from "./PassageLookup";
+export { default as FindPassage } from "./FindPassage";
 export { default as HomeLayout } from "./HomeLayout";

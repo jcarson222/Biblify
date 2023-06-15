@@ -132,7 +132,7 @@ h5 {
 
 .text {
   margin-bottom: 1.5rem;
-  max-width: 40em;
+  max-width: 50em;
 }
 
 small,
@@ -163,6 +163,7 @@ ul {
   border-radius: var(--borderRadius);
   letter-spacing: var(--letterSpacing);
   padding: 0.375rem 0.75rem;
+  margin-top: 1.3rem;
   box-shadow: var(--shadow-1);
   transition: var(--transition);
   text-transform: capitalize;
@@ -221,6 +222,7 @@ ul {
 .form-input,
 .form-textarea {
   width: 100%;
+  margin-bottom: 0.5rem;
   padding: 0.375rem 0.75rem;
   border-radius: var(--borderRadius);
   background: var(--backgroundColor);
