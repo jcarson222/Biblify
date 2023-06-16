@@ -4,27 +4,42 @@ import { findPassage } from "../requests/findPassage";
 import SearchForm from "../components/SearchForm";
 
 const FindPassage = () => {
-  const search = "John+3:16";
-  const { data } = useQuery(["passage"], () => findPassage(search));
+  const [bookValue, setBookValue] = useState("John");
+  const [chapterValue, setChapterValue] = useState("3");
+  const [verseValue, setVerseValue] = useState("16");
+
+  const search = `${bookValue}+${chapterValue}:${verseValue}`;
+  console.log(search);
+
+  const { data, isLoading, isError, refetch } = useQuery(["passage"], () =>
+    findPassage(search)
+  );
   const [passageData, setPassageData] = useState(null);
 
   useEffect(() => {
+    refetch();
+  }, [bookValue, chapterValue, verseValue, refetch]);
+
+  useEffect(() => {
     if (data) {
-      setPassageData(data);
+      setPassageData(data.data);
     }
   }, [data]);
-  // console.log(passageData);
+  console.log(passageData);
 
   const onFormSubmit = (values) => {
     const { book, chapter, verse } = values;
-    console.log(book, chapter, verse);
+    setBookValue(book);
+    setChapterValue(chapter);
+    setVerseValue(verse);
+    // console.log(book, chapter, verse);
   };
 
   return (
     <>
       <h1 style={{ textAlign: "center", marginTop: "2rem" }}>find a passage</h1>
       <SearchForm sendValues={onFormSubmit} />
-      {/* <p>{passageData}</p> */}
+      {isLoading ? <h1>Loading...</h1> : <p>{passageData}</p>}
     </>
   );
 };
