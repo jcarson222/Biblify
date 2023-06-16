@@ -20,7 +20,7 @@ const SearchForm = ({ sendValues }) => {
     const chapterValue = chapterRef.current.value;
     const verseValue = verseRef.current.value;
 
-    if (!bookValue || !chapterValue || !verseValue) {
+    if (!bookValue || !chapterValue) {
       console.log("provide all form values");
       return;
     }
@@ -34,7 +34,13 @@ const SearchForm = ({ sendValues }) => {
         <label htmlFor="book" className="form-label">
           book
         </label>
-        <input type="search" name="book" className="form-input" ref={bookRef} />
+        <input
+          type="search"
+          name="book"
+          className="form-input"
+          ref={bookRef}
+          placeholder="John"
+        />
 
         <label htmlFor="chapter" className="form-label">
           chapter
@@ -44,6 +50,7 @@ const SearchForm = ({ sendValues }) => {
           name="chapter"
           className="form-input"
           ref={chapterRef}
+          placeholder="3"
         />
 
         <label htmlFor="verse" className="form-label">
@@ -54,6 +61,7 @@ const SearchForm = ({ sendValues }) => {
           name="verse"
           className="form-input"
           ref={verseRef}
+          placeholder="16"
         />
 
         <button className="btn btn-block" disabled={isSubmitting} type="submit">
