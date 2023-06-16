@@ -7,6 +7,7 @@ const FindPassage = () => {
   const [bookValue, setBookValue] = useState("John");
   const [chapterValue, setChapterValue] = useState("3");
   const [verseValue, setVerseValue] = useState("16");
+  const [passageData, setPassageData] = useState(null);
 
   const search = `${bookValue}+${chapterValue}:${verseValue}`;
   console.log(search);
@@ -14,7 +15,6 @@ const FindPassage = () => {
   const { data, isLoading, isError, refetch } = useQuery(["passage"], () =>
     findPassage(search)
   );
-  const [passageData, setPassageData] = useState(null);
 
   useEffect(() => {
     refetch();
@@ -39,7 +39,7 @@ const FindPassage = () => {
     <>
       <h1 style={{ textAlign: "center", marginTop: "2rem" }}>find a passage</h1>
       <SearchForm sendValues={onFormSubmit} />
-      {isLoading ? <h1>Loading...</h1> : <p>{passageData}</p>}
+      {isLoading ? <h1>Loading...</h1> : <p className="form">{passageData}</p>}
     </>
   );
 };
